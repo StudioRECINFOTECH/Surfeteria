@@ -6,6 +6,7 @@ public class LoginUIControllerBridge : MonoBehaviour
     public Button FaceBookButton;
     public Button GoogleButton;
     public Button CloseButton;
+    public Button LoginButton;
     public GameObject LoginPanel;
 
     [SerializeField]private GoogleLoginController GoogleLogin;
@@ -16,6 +17,7 @@ public class LoginUIControllerBridge : MonoBehaviour
         FaceBookButton.onClick.AddListener(() => FacebookLogin.Login());
         GoogleButton.onClick.AddListener(() => GoogleLogin.OnSignIn());
         CloseButton.onClick.AddListener(() => LoginPanel.SetActive(false));
+        LoginButton.onClick.AddListener(() => LoginPanel.SetActive(true));
     }
 
     private void OnDestroy()
@@ -23,5 +25,6 @@ public class LoginUIControllerBridge : MonoBehaviour
         FaceBookButton.onClick.RemoveAllListeners();
         GoogleButton.onClick.RemoveAllListeners();
         CloseButton.onClick.RemoveAllListeners();
+        LoginButton.onClick.RemoveAllListeners();
     }
 }
